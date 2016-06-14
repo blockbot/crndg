@@ -1,0 +1,91 @@
+/** unset initial load styles **/
+
+body{
+
+	&:before{
+		opacity: 0 !important;
+		height: 0 !important;
+	}
+
+}
+
+.navbar-toggle{
+	margin-bottom: 0px !important;
+}
+
+.menu-item{
+	margin-bottom: 0px !important;
+}
+
+.crndg-scroll-btn{
+	margin-bottom: 0px !important;
+}
+
+/** end --- unset initial load styles **/
+
+.navbar{
+	background: none;
+	border: none;
+
+	@media #{$medium-up}{
+		padding-left: 15px;
+		width: 22%;
+	}
+
+	@media #{$xlarge-up}{
+		padding-left: 15px;
+		width: 16%;
+	}
+
+	.logo{	
+		display: block;
+		position: relative;
+
+		.the-corndog{
+		    display: block;
+		    margin: 0 auto -81px auto;
+ 			position: relative;
+ 			transform: rotate(0deg);
+		    top: 10px;
+		    width: 22px;
+
+		    @media #{$small-only}{
+		    	margin: 0 auto -100px auto;
+			    top: 12px;
+			    width: 28px;
+		    }
+
+		    @media #{$medium-up}{
+		    	margin: 0 auto -98px auto;
+			    top: 12px;
+			    width: 26px;
+		    }
+
+		    @media #{$xxlarge-up}{
+			    margin: 0 auto -134px auto;
+			    top: 18px;
+			    width: 37px;
+		    }
+
+		}
+
+		img{
+			display: block;
+			margin: 0 auto;
+			width: 40%;
+
+			@media #{$medium-up}{
+				margin: 0;
+				width: 100%
+			}
+
+			@media #{$xlarge-up}{
+				margin: 0;
+				width: 100%
+			}
+
+		}
+
+	}
+
+}
