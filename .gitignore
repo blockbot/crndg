@@ -36,4 +36,4 @@
 ehthumbs.db
 Thumbs.db
 
-.sass-cache/
+.sass-cache/*
