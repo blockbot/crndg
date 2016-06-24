@@ -171,6 +171,14 @@
 
 				}
 
+				p{
+
+					@media #{$medium-only}{
+						margin-left: 14%;
+					}
+
+				}
+
 			}
 
 		}
