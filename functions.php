@@ -230,4 +230,33 @@ function hex2rgb($hex) {
    return $rgb; // returns an array with the rgb values
 }
 
+add_action('wp_ajax_get_project', 'get_project');
+add_action('wp_ajax_nopriv_get_project','get_project');
+
+function get_project(){
+
+	$project_id = $_GET['id'];
+	$post_info = get_post($project_id);
+
+	if (isset($_GET['id'])){
+
+		$project_short_description = get_field("project_short_description", $project_id);
+		$project_details = get_field("project_details", $project_id);
+		$project_link = get_field("project_link", $project_id);
+
+		$array = [
+			"projectTitle" => $post_info->post_title,
+			"projectShortDescription" => $project_short_description,
+			"projectDescription" => $post_info->post_content,			
+			"projectDetails" => $project_details,
+			"projectUrl" => $project_link
+		];
+	
+	}
+
+	echo json_encode($array);
+	die;
+
+}
+
 ?>

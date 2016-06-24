@@ -48,7 +48,7 @@
 
 			.logo{
 				display: none;
-				margin-top: 15px;
+				margin-top: 60px;
 			}
 
 		</style>
@@ -69,8 +69,7 @@
 
 						<a class="logo" href="<?php bloginfo("url"); ?>">
 							<img alt="CRNDG" class="the-corndog" src="<?php bloginfo("template_url"); ?>/img/the-corndog.png">
-<!-- 							<img alt="CRNDG" src="<?php bloginfo("template_url"); ?>/img/crndg-logo-538.png">
- -->						</a>
+						</a>
 
 					</div>
 			

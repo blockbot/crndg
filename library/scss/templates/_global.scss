@@ -1,6 +1,8 @@
 /** unset initial load styles **/
 
 body{
+	overflow-x: hidden;
+	width: 100%;
 
 	&:before{
 		opacity: 0 !important;
@@ -39,6 +41,7 @@ body{
 
 	.logo{	
 		display: block;
+		outline: none;
 		position: relative;
 
 		.the-corndog{
@@ -46,24 +49,17 @@ body{
 		    margin: 0 auto -81px auto;
  			position: relative;
  			transform: rotate(0deg);
-		    top: 10px;
 		    width: 22px;
 
 		    @media #{$small-only}{
-		    	margin: 0 auto -100px auto;
-			    top: 12px;
 			    width: 28px;
 		    }
 
 		    @media #{$medium-up}{
-		    	margin: 0 auto -98px auto;
-			    top: 12px;
 			    width: 26px;
 		    }
 
 		    @media #{$xxlarge-up}{
-			    margin: 0 auto -134px auto;
-			    top: 18px;
 			    width: 37px;
 		    }
 

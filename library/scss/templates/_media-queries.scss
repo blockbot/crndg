@@ -15,6 +15,7 @@ $xsmall-up: $screen !default;
 $xsmall-only: "#{$screen} and (max-width: #{upper-bound($xsmall-range)})" !default;
 
 $small-up: $screen !default;
+$small-down: "#{$screen} and (max-width:#{upper-bound($small-range)})" !default;
 $small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})" !default;
 
 $medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})" !default;

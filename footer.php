@@ -1,8 +1,8 @@
 	
-		<footer class="container-fluid ic-section ic-section-gray">
+<!-- 		<footer class="container-fluid ic-section ic-section-gray">
             <p>Copyright &copy; <?php echo date(Y); ?> <a href="http://joeydehnert.com" target="_blank">Joey Dehnert</a></p>
 		</footer>
-
+ -->
 		<?php wp_footer(); ?>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

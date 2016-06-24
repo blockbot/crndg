@@ -24,11 +24,18 @@ button{
 }
 
 a{
-	color: #ca4301;
+	color: #eea727;
 	text-decoration: none;
 
 	&:hover, &:active{
-		color: #ca4301;
+		color: #eea727;
 		text-decoration: underline;
 	}
+
+	&:focus{
+		color: #eea727;
+		outline: none;
+		text-decoration: none;
+	}
+	
 }
