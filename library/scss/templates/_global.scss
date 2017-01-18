@@ -29,20 +29,32 @@ body{
 	background: none;
 	border: none;
 
-	@media #{$medium-up}{
-		padding-left: 15px;
-		width: 22%;
+	.navbar-toggle{
+		border-color: #fff;
+		float: left;
+		margin: 20px;
+		&:active, &:hover, &:focus{
+			background-color: #eea727;
+		}
+		.icon-bar{
+			background-color: #fff;
+		}
 	}
 
-	@media #{$xlarge-up}{
-		padding-left: 15px;
-		width: 16%;
-	}
-
-	.logo{	
+	.logo{
 		display: block;
 		outline: none;
 		position: relative;
+
+		@media #{$large-up}{
+			left: 67px;
+			position: absolute;
+		}
+
+		@media #{$xlarge-up}{
+			left: 95px;
+			position: absolute;
+		}
 
 		.the-corndog{
 		    display: block;
@@ -84,4 +96,46 @@ body{
 
 	}
 
+	.navbar-collapse{
+	    border:none;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+		.navbar-right{
+			background: #12A89D;
+			margin: -9px;
+			width: 150px;
+			@media #{$large-up}{
+				margin: 15px;
+				position: relative;
+				width: auto;
+				z-index: 2;
+			}
+			li > a{
+				color: #fff;
+				&:active, &:hover, &:focus{
+					color: #eea727;
+				}
+			}
+		}
+	}
+
+}
+
+.modal-title{
+	font-size: 20px;
+}
+
+.modal-body{
+	img{
+		height: auto;
+		width: 100%;
+		@media #{$medium-up}{
+			float: left;
+			margin-right: 20px;
+			width: auto;
+		}
+	}
+	p{
+		margin-top: 0px;
+	}
 }

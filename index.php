@@ -19,7 +19,7 @@
 			<div class="col-md-4">
 
 				<h3>Tech</h3>
-				
+
 				<ul></ul>
 
 				<a href="" target="_blank"></a>
@@ -32,10 +32,10 @@
 
 	<?php
 		$work_index = 1;
-		$temp = $wp_query; 
-		$wp_query = null; 
-		$wp_query = new WP_Query(); 
-			$args = array( 
+		$temp = $wp_query;
+		$wp_query = null;
+		$wp_query = new WP_Query();
+			$args = array(
 			'post_type' => 'work',
 			'posts_per_page' => -1,
 			'order' => 'DESC'
@@ -46,18 +46,22 @@
 
 	<ul id="timeline">
 
+		<li class="work-highlights timeline-date">
+			Work Highlights
+		</li>
+
 		<?php if($wp_query->have_posts()): ?>
 
 			<?php $current_date = null; ?>
 
-			<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>			
-			
+			<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+
 				<?php $post_date = get_the_date('Y'); ?>
 
 				<?php if($current_date != $post_date): ?>
-				
+
 					<?php $current_date = get_the_date('Y'); ?>
-					
+
 					<li class="timeline-date">
 						<?php echo ($current_date == "2015" ? "2012 - 2015" : $current_date); ?>
 					</li>
@@ -66,7 +70,7 @@
 
 				<li>
 
-					<?php 
+					<?php
 						$title_string = get_the_title($post->ID);
 						$clean_title = strtolower(str_replace(" ", "-", $title_string));
 					?>
@@ -76,7 +80,7 @@
 				</li>
 
 			<?php endwhile; ?>
-			
+
 		<?php endif; ?>
 
 	</ul>
@@ -85,16 +89,7 @@
 
 		<div class="about-content">
 
-			<div class="about-content-circle">
-
-				<h1>
-					<a href="http://joeydehnert.com" target="_blank">Joey Dehnert</a><br>
-					Portfolio + Sandbox<br>
-				</h1>
-
-				<p>Hire Me: jd[at]joeydehnert.com</p>
-
-			</div>
+			<h2>Hi, my name is Joey Dehnert.<br> I am a Senior Software Engineer, based in NYC.</h2>
 
 		</div>
 
@@ -108,7 +103,7 @@
 
 			<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-				<?php 
+				<?php
 					$title_string = get_the_title($post->ID);
 					$clean_title = strtolower(str_replace(" ", "-", $title_string));
 				?>
@@ -141,7 +136,7 @@
 						<ul>
 
 							<?php foreach($project_details as $detail): ?>
-								
+
 								<li><?php echo $detail["project_tech"]; ?></li>
 
 							<?php endforeach; ?>
@@ -157,19 +152,14 @@
 				<?php $work_index++; ?>
 
 			<?php endwhile; ?>
-			
+
 			<?php wp_reset_postdata(); ?>
 
 		<?php endif; ?>
 
-		<div id="reverse-contain">
-			<button class="btn-advance-arrow"></button>
-		</div>
-
 		<div id="advance-contain">
-			<button class="btn-advance-arrow"></button>
-		</div>
-
+            <button class="btn-advance-arrow"></button>
+        </div>
 	</div>
 
 </div>

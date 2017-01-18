@@ -7,15 +7,15 @@
 		color: #fff;
 		display: none;
 		outline: none;
-		padding: 9px;		
+		padding: 9px;
 		position: fixed;
 		-webkit-transform:translate3d(-100%,0,0);
 		-moz-transform:translate3d(-100%,0,0);
 		transform:translate3d(-100%,0,0);
 		-webkit-transition: transform 100ms cubic-bezier(0,1,1,1);
 		-moz-transition: transform 100ms cubic-bezier(0,1,1,1);
-		transition: transform 100ms cubic-bezier(0,1,1,1);	
-		width: 100px; 
+		transition: transform 100ms cubic-bezier(0,1,1,1);
+		width: 100px;
 		z-index: 6;
 
 		@media #{$large-down}{
@@ -28,7 +28,7 @@
 		background: #fff;
 		border-left: 1px solid #fff;
 		overflow-y: auto;
-		position: fixed;		
+		position: fixed;
 		top: 36%; right: -76%;
 		-webkit-transform:translate3d(0,0,0);
 		-moz-transform:translate3d(0,0,0);
@@ -68,15 +68,15 @@
 	#timeline{
 		display: none;
 		background: rgba(255,255,255,0.7);
-		bottom: 0px;	
-		left: -100%;		
+		bottom: 0px;
+		left: -100%;
 		margin-bottom: 0;
 		padding: 0;
 		position: fixed;
 		width: 16%;
 		z-index: 5;
 
-		@media #{$xlarge-up}{
+		@media #{$large-up}{
 			display: block;
 		}
 
@@ -89,6 +89,11 @@
 			    font-size: 23px;
 				font-weight: 200;
 				padding: 15px;
+			}
+
+			&.work-highlights{
+				background: #eea727;
+    			color: #fff;
 			}
 
 			a{
@@ -107,17 +112,14 @@
 	}
 
 	#about{
+		background: #12A89D;
 		display: table;
 		overflow: hidden;
 		width: 100%; height: 500px;
 		z-index: 1;
 
 		@media #{$large-down}{
-			height: 200px !important;
-		}
-
-		@media #{$small-down}{
-			height: 200px !important;
+			height: 455px !important;
 		}
 
 		@media #{$xlarge-up}{
@@ -135,6 +137,19 @@
 				display: table-cell;
 				margin: 50% 0;
 				vertical-align: middle;
+			}
+
+			h2{
+				color: #fff;
+				font-family: 'Bitter', serif;
+				font-size: 31px;
+			    margin: 229px auto 0;
+			    width: 76%;
+				@media #{$xlarge-up}{
+					font-size: 56px;
+					margin: 0 auto;
+					width: 64%;
+				}
 			}
 
 			.about-content-circle{
@@ -194,7 +209,7 @@
 				left: 0;
 				z-index: -1;
 			}
-			
+
 		}
 
 	}
@@ -213,7 +228,7 @@
 		}
 
 		@media #{$xlarge-up}{
-			margin-top: 0; 
+			margin-top: 0;
 			padding-top: 252px;
 		}
 
@@ -234,7 +249,7 @@
 				height: auto !important;
 				padding: 0 0 20px !important;
 				position: relative !important;
-				top: 20px !important;
+				top: 0px !important;
 			}
 
 			@media #{$xlarge-up}{
@@ -248,15 +263,15 @@
 				-moz-background-size: cover;
 				-o-background-size: cover;
 				background-size: cover;
-				
+
 				@media #{$large-down}{
 					background-size: cover;
 					height: 400px !important;
 				}
 
 				@media #{$small-down}{
-					background-size: 100% auto;					
-					height: 200px !important;				
+					background-size: 100% auto;
+					height: 200px !important;
 				}
 
 			}
@@ -292,46 +307,45 @@
 
 		}
 
-		.btn-advance-arrow{
-			background:url("#{$imageDir}/btn-advance-arrow.png") no-repeat;
-			border: none;
-			border-radius: 37px;
-			display: block;
-			margin: 0 auto;
-			outline: none;
-			width: 74px; height: 74px;
-		}
-
-		#reverse-contain{
-			display: none;
-			position: fixed;
-			top: 10px;
-			width: 100%; height: 70px;
-			z-index: 4;
-			
-			@media #{$xlarge-up}{
-				display: block;
-			}
-			
-			.btn-advance-arrow{
-				display: none;
-				transform: rotate(180deg);
-			}
-
-		}
-
-		#advance-contain{
-			bottom: 10px;
-			display: none;
-			position: fixed;
-			width: 100%; height: 70px;
-			z-index: 4;
-
-			@media #{$xlarge-up}{
-				display: block;
-			}
-		}
-
 	}
 
+}
+
+.btn-advance-arrow{
+	background:url("#{$imageDir}/btn-advance-arrow.png") no-repeat;
+	border: none;
+	border-radius: 37px;
+	display: block;
+	margin: 0 auto;
+	outline: none;
+	width: 74px; height: 74px;
+}
+
+#reverse-contain{
+	display: none;
+	position: fixed;
+	top: 10px;
+	width: 100%; height: 70px;
+
+	@media #{$xlarge-up}{
+		display: block;
+	}
+
+	.btn-advance-arrow{
+		display: none;
+		transform: rotate(180deg);
+	}
+
+}
+
+#advance-contain{
+	bottom: 10px;
+	display: none;
+	position: fixed;
+	width: 100%; height: 70px;
+	z-index: 4;
+
+	@media #{$xlarge-up}{
+		display: block;
+	}
 }

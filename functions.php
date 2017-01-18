@@ -1,24 +1,23 @@
 <?php
 
 // register nav menu
-function register_ic_menus() {
+function register_theme_menus() {
   register_nav_menus(
     array(
-   		'left-menu' => __( 'Left Menu' ),
-   		'right-menu' => __( 'Right Menu' )
+      'site-menu' => __( 'Site Menu' ),
     )
   );
 }
-add_action( 'init', 'register_ic_menus' );
+add_action( 'init', 'register_theme_menus' );
 
 add_theme_support( 'title-tag' );
 
 // enable thumbnails
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 
 // register work custom post type
 function work_register() {
- 
+
 	$labels = array(
 		'name' => _x('Work', 'post type general name'),
 		'singular_name' => _x('Project', 'post type singular name'),
@@ -32,7 +31,7 @@ function work_register() {
 		'not_found_in_trash' => __('Nothing found in Trash'),
 		'parent_item_colon' => ''
 	);
- 
+
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
@@ -47,7 +46,7 @@ function work_register() {
 		'supports' => array('title','editor','custom-fields','page-attributes', 'author', 'excerpt','thumbnail'),
 		'taxonomies' => array('category', 'post_tag')
 	  );
- 
+
 	register_post_type( 'work' , $args );
 }
 add_action('init', 'work_register');
@@ -101,7 +100,7 @@ function getTextBetweenTags($tag, $html, $strict=0)
 function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
   if ( isset( $args->sub_menu ) ) {
 	$root_id = 0;
-	
+
 	// find the current menu item
 	foreach ( $sorted_menu_items as $menu_item ) {
 	  if ( $menu_item->current ) {
@@ -110,7 +109,7 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 		break;
 	  }
 	}
-	
+
 	// find the top level parent
 	if ( ! isset( $args->direct_parent ) ) {
 	  $prev_root_id = $root_id;
@@ -121,7 +120,7 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 			// don't set the root_id to 0 if we've reached the top of the menu
 			if ( $prev_root_id != 0 ) $root_id = $menu_item->menu_item_parent;
 			break;
-		  } 
+		  }
 		}
 	  }
 	}
@@ -137,7 +136,7 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 		unset( $sorted_menu_items[$key] );
 	  }
 	}
-	
+
 	return $sorted_menu_items;
   } else {
 	return $sorted_menu_items;
@@ -151,7 +150,7 @@ add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
 $liveSearch = new searchBuilder();
 class searchBuilder {
   const LANG = "liveSearch_textdomain";
-  
+
   public $plugins_url;
 
   public function __construct(){
@@ -166,16 +165,16 @@ class searchBuilder {
 
 	ob_start();
 
-	if($search->have_posts()): 
+	if($search->have_posts()):
 	  while($search->have_posts()): $search->the_post();
-		get_template_part("template-parts/post", "loop"); 
-	  endwhile; 
+		get_template_part("template-parts/post", "loop");
+	  endwhile;
 	endif;
-	
+
 	$search_results = ob_get_clean();
 
 	echo $search_results;
-	die();  
+	die();
 
   }
 }
@@ -190,9 +189,9 @@ function get_id_by_slug($page_slug) {
 }
 
 add_filter( 'clean_url', function( $url ){
- 
+
 	if(is_admin()){
-	
+
 		if ( FALSE === strpos( $url, '.js' ) )
 	    { // not our file
 	        return $url;
@@ -210,7 +209,7 @@ add_filter( 'clean_url', function( $url ){
 	    return "$url' defer='defer";
 
 	}
-    
+
 }, 11, 1 );
 
 function hex2rgb($hex) {
@@ -247,16 +246,45 @@ function get_project(){
 		$array = [
 			"projectTitle" => $post_info->post_title,
 			"projectShortDescription" => $project_short_description,
-			"projectDescription" => $post_info->post_content,			
+			"projectDescription" => $post_info->post_content,
 			"projectDetails" => $project_details,
 			"projectUrl" => $project_link
 		];
-	
+
 	}
 
 	echo json_encode($array);
 	die;
 
+}
+
+add_action('wp_ajax_get_utility_page', 'get_utility_page');
+add_action('wp_ajax_nopriv_get_utility_page','get_utility_page');
+
+function get_utility_page(){
+
+	$page_url = $_GET['page_url'];
+	$page_id = url_to_postid($page_url);
+	$page = get_post($page_id);
+	$post_thumb = get_the_post_thumbnail($page, 'medium');
+
+	$html_blob = "";
+	if(!empty($post_thumb)){
+		$html_blob .= $post_thumb;
+	}
+	$html_blob .= wpautop($page->post_content, true);
+
+	if (isset($_GET['page_url'])){
+
+		$array = [
+			"title" => $page->post_title,
+			"html" => $html_blob
+		];
+
+	}
+
+	echo json_encode($array);
+	die;
 }
 
 ?>

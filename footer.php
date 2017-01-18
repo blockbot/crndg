@@ -1,17 +1,30 @@
-	
+
 <!-- 		<footer class="container-fluid ic-section ic-section-gray">
             <p>Copyright &copy; <?php echo date(Y); ?> <a href="http://joeydehnert.com" target="_blank">Joey Dehnert</a></p>
 		</footer>
  -->
+
+        <div class="modal fade" id="crndg-modal" tabindex="-1" role="dialog" aria-labelledby="crndg-modal-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="crndg-modal-label">Modal title</h4>
+                    </div>
+                  <div class="modal-body">
+                  </div>
+                </div>
+            </div>
+        </div>
 
         <noscript id="deferred-styles">
             <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
             <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url"); ?>/library/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
             <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url"); ?>/library/css/main.css"/>
         </noscript>
-        
+
         <script>
-        
+
             var loadDeferredStyles = function() {
                 var addStylesNode = document.getElementById("deferred-styles");
                 var replacement = document.createElement("div");
@@ -24,7 +37,7 @@
                 webkitRequestAnimationFrame || msRequestAnimationFrame;
             if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
             else window.addEventListener('load', loadDeferredStyles);
-        
+
         </script>
 
 		<?php wp_footer(); ?>
@@ -42,17 +55,17 @@
 	</body>
 
 <!--
-      ___           ___           ___           ___           ___     
-     /\  \         /\  \         /\__\         /\  \         /\  \    
-    /::\  \       /::\  \       /::|  |       /::\  \       /::\  \   
-   /:/\:\  \     /:/\:\  \     /:|:|  |      /:/\:\  \     /:/\:\  \  
-  /:/  \:\  \   /::\~\:\  \   /:/|:|  |__   /:/  \:\__\   /:/  \:\  \ 
+      ___           ___           ___           ___           ___
+     /\  \         /\  \         /\__\         /\  \         /\  \
+    /::\  \       /::\  \       /::|  |       /::\  \       /::\  \
+   /:/\:\  \     /:/\:\  \     /:|:|  |      /:/\:\  \     /:/\:\  \
+  /:/  \:\  \   /::\~\:\  \   /:/|:|  |__   /:/  \:\__\   /:/  \:\  \
  /:/__/ \:\__\ /:/\:\ \:\__\ /:/ |:| /\__\ /:/__/ \:|__| /:/__/_\:\__\
  \:\  \  \/__/ \/_|::\/:/  / \/__|:|/:/  / \:\  \ /:/  / \:\  /\ \/__/
-  \:\  \          |:|::/  /      |:/:/  /   \:\  /:/  /   \:\ \:\__\  
-   \:\  \         |:|\/__/       |::/  /     \:\/:/  /     \:\/:/  /  
-    \:\__\        |:|  |         /:/  /       \::/__/       \::/  /   
-     \/__/         \|__|         \/__/         ~~            \/__/    
+  \:\  \          |:|::/  /      |:/:/  /   \:\  /:/  /   \:\ \:\__\
+   \:\  \         |:|\/__/       |::/  /     \:\/:/  /     \:\/:/  /
+    \:\__\        |:|  |         /:/  /       \::/__/       \::/  /
+     \/__/         \|__|         \/__/         ~~            \/__/
 -->
 
 <!--

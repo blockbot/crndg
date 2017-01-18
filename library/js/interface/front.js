@@ -46,7 +46,7 @@
 				front.slideStop();
 
 				clearTimeout($.data(this, 'scrollTimer'));
-			
+
 			    $.data(this, 'scrollTimer', setTimeout(function() {
 
  					front.btnSwitch = false;
@@ -75,7 +75,7 @@
 				front.btnSwitch = true;
 
 				$("html, body").animate({scrollTop: $(window).height() * front.inFrame - $(window).height()}, "slow");
-				
+
 				front.updateTimeline(false);
 
 			});
@@ -121,7 +121,7 @@
 				$(this).css({
 					"height": front.portal.height(),
 					"left": "0",
-					"top": front.portal.height() * i		
+					"top": front.portal.height() * i
 				});
 
 				$(this).find(".img-contain").css({
@@ -132,18 +132,19 @@
 
 			work.append(workItems);
 
-			var iframe = "";
+			// kill video for now
+			// var iframe = "";
 
-			iframe += '<iframe src="https://player.vimeo.com/video/164057962?autoplay=1&amp;loop=1&amp;color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" '
-			iframe += 'height="' + front.portal.height() + '" ';
-			iframe += 'width="' + front.portal.width() + '" ';
-			iframe += 'frameborder="0" ';
-			iframe += 'webkitallowfullscreen ';
-			iframe += 'mozallowfullscreen ';
-			iframe += 'allowfullscreen>';
-			iframe += '</iframe>';
-				
-			about.append(iframe);
+			// iframe += '<iframe src="https://player.vimeo.com/video/164057962?autoplay=1&amp;loop=1&amp;color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" '
+			// iframe += 'height="' + front.portal.height() + '" ';
+			// iframe += 'width="' + front.portal.width() + '" ';
+			// iframe += 'frameborder="0" ';
+			// iframe += 'webkitallowfullscreen ';
+			// iframe += 'mozallowfullscreen ';
+			// iframe += 'allowfullscreen>';
+			// iframe += '</iframe>';
+
+			// about.append(iframe);
 
 			front.showTimeline();
 
@@ -151,11 +152,11 @@
 		showTimeline: function(){
 
 			setTimeout(function(){
-	
+
 				front.timeline.animate({
 					"left": "0"
 				}, 2000, "easeOutCubic");
-	
+
 			}, 100);
 
 		},
@@ -182,7 +183,7 @@
 				front.getProjectDetails(id);
 
 			} else {
-			       
+
 			    front.showHideDetails(true);
 				front.btnDetails.hide();
 
@@ -194,7 +195,7 @@
 			front.timeline.on("click", "a", function(e){
 
 				e.preventDefault();
-			        	
+
 			    $(".timeline-active").removeClass("timeline-active");
 			    $(this).addClass("timeline-active");
 
@@ -239,7 +240,7 @@
 				if(front.workIndex < front.workItemCount){
 					front.workIndex++;
 					front.reverseBtn.css("display", "block");
-				} else {	
+				} else {
 					front.advanceBtn.css("display", "none");
 				}
 
@@ -264,7 +265,7 @@
 					front.workIndex--;
 					front.advanceBtn.css("display", "block");
 				}
-				
+
 				front.workItem = $("[data-index=" + front.workIndex + "]");
 
 			}
@@ -306,7 +307,7 @@
 				front.moreInfo.addClass("open");
 
 				front.btnDetails.text("X");
-			
+
 				front.moreInfo.css({
 					"width": "76%",
 					"height": "32%",
@@ -331,20 +332,20 @@
 					id: id
 				},
 				success: function(data){
-						
+
 					var data = JSON.parse(data);
 
 					front.moreInfo.removeClass("loading");
 					front.buildMoreInfoContent(data);
 
-				}, 
+				},
 				error: function(e){
 
 					console.log("There was an error: ", e);
-				
+
 				},
 				timeout: 3000
-			});	
+			});
 
 		},
 		buildMoreInfoContent: function(data){
@@ -364,7 +365,7 @@
 				var detail_escaped = unescape(details[detail]["project_tech"]);
 
 				list += "<li>" + detail_escaped + "</li>";
-				
+
 			}
 
 			front.moreInfoContent.find("ul").html(list);

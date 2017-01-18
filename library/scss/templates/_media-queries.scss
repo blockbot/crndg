@@ -2,8 +2,8 @@
 $xsmall-range: (rem_calc(0), rem_calc(320)) !default;
 $small-range: (rem_calc(321), rem_calc(520)) !default;
 $medium-range: (rem_calc(521), rem_calc(768)) !default;
-$large-range: (rem_calc(769), rem_calc(1023)) !default;
-$xlarge-range: (rem_calc(1024), rem_calc(1168)) !default;
+$large-range: (rem_calc(769), rem_calc(1024)) !default;
+$xlarge-range: (rem_calc(1025), rem_calc(1168)) !default;
 $xxlarge-range: (rem_calc(1169)) !default;
 
 $screen: "only screen" !default;
@@ -30,5 +30,5 @@ $xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
 $xlarge-down: "#{$screen} and (max-width:#{upper-bound($xlarge-range)})" !default;
 $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
 
-$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default; 
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
